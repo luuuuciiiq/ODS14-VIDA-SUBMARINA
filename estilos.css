@@ -1,0 +1,685 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+    --bg: #F0F0F1;
+    --body: rgba(0, 0, 0, 0.666);
+    --prim: #157cc2;
+    --sec: #bbe4ff;
+    --third: #062438;
+}
+
+/* MOBILE */
+
+body{
+    background-color: var(--third);
+    color: var(--body);
+    overflow-x: hidden; /* deshabilita scroll en X */
+}
+
+h1, h2, h3{
+    font-family: "Montserrat", sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding-left: 1.5em;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, var(--sec), rgba(0, 3, 33, 0.377));
+    z-index: 1000;
+}
+
+header #logo{
+    filter:brightness(0);
+}
+
+nav{
+   position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    padding: 1.5em;
+    border-radius: 5px;
+    top:10vh;
+    transition: 0.5s;
+    opacity: 0;
+} 
+
+nav a{
+    color: var(--sec);
+    text-align: center;
+}
+
+ #hamburguesa:hover + nav{
+    opacity: 1;
+    transform: translateX(100%); /* oculta por completo el nav sin importar su medida */
+    background: linear-gradient(to bottom, #1c577fcc, rgba(0, 3, 33, 0.567));
+    box-shadow: 2px 2px 2px rgba(1, 1, 6, 0.557);
+    right: 6em;
+}
+
+header img{
+    width: 50px;
+}
+
+#hero{
+    background-image: url(IMG/imagenes_avif_web_optimizado/Nat_Geo_Paul_Nicklen_optimizado.avif);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    min-width: 300px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+#hero::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient( to bottom, rgba(0, 0, 0, 0), var(--third));
+}
+
+#hero h1, p{
+    margin: 2em;
+}
+
+
+#hero h1{
+    color: var(--bg);
+    font-size: large;
+    margin-top: auto;
+}
+
+#hero p{
+    color: var(--sec);
+    border-radius: 20px;
+    text-align: right;
+    font-size: small;
+    margin-top: auto;
+    margin-bottom: 18em;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+#form{
+    position: static;
+    text-align: center;
+    background:  linear-gradient(to bottom, var(--prim),var(--sec));
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(1, 1, 6, 0.844);
+    margin: 20px;
+}
+
+form select, form input{
+    border: none;
+    padding: 4px;
+    border-radius: 10px;    
+    outline: none;
+    background-color: #F0F0F1;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#form h2{
+    color: var(--third);
+    text-shadow:  0 2px 4px #bbe4ff28;
+}
+
+#form p{
+    color: var(--sec);
+    margin: 20px;
+}
+
+button{
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: var(--third);
+    color: #bbe4ff;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    box-shadow: 2px 2px 8px var(--prim);
+}
+
+#datos{
+    display: grid;
+    margin: 1em;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#datos img{
+    width: 100%;
+    display: block; /* las img son inline block por defecto y eso hace q deje un pequeño espacio por debajo. ese espacio no es ni margin ni padding */
+}
+
+#datos article{
+    position: relative; /* es el padre del absolute del texto de nuestra grid */
+    overflow: hidden;
+}
+
+#datos h3, #datos a, #datos p{
+    position: absolute;
+    z-index: 1;
+}
+
+#datos a{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: var(--sec);
+    font-size: 0.8em;
+    padding: 0.3em;
+    right: 0;
+    bottom: 0.3em;
+}
+
+#datos h3{
+    color: var(--sec);
+    padding: 1em;
+    font-weight: 400;
+    font-size: 0.9em;
+    bottom: 0;
+    background-color: #06243877;
+    width: 100%; /* para que quede luego el bg color todo el parrafo */ 
+}
+
+#datos article:nth-of-type(4) p, #datos article:nth-of-type(4) h3{
+    display: none; /* en el celular no se ve */
+}
+
+#datos article:nth-of-type(6){
+    display: none; /* en el celular no se ve */
+}
+
+#todosarticulos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin: 1em;
+}
+
+.flexmini{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.flexmini img{
+    display: none;
+}
+
+#noticias article{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    max-width: 320px;
+    border: 1px solid var(--sec);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    background-color: rgba(169, 181, 236, 0.34);
+    position: relative;  /* para tener el tag arriba */
+}
+
+#noticias h2{
+    color: var(--sec);
+    text-align: center;
+    font-weight: 400;
+    padding-bottom: 1em;
+}
+
+#noticias h3{
+    color: var(--bg);
+    text-align: center;
+    padding: 0.5em;
+}
+
+#noticias p{
+    text-align: left;
+    color: var(--sec);
+    margin: 0;
+    padding: 1em;
+    font-size: smaller;
+    font-weight: 400;
+    border-radius: 20px;
+}
+
+.img-fluid{
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 0.5em;
+    object-fit: cover;
+    padding: 0.5rem;
+}
+
+#noticias a{
+    padding: 0.5em;
+    border-radius: 20px;
+    background-color: var(--third);
+    color: #bbe4ff;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    box-shadow: 2px 2px 8px var(--prim);
+    font-size: smaller;
+}
+
+#noticias a:hover{
+    color: #157cc2;
+    background-color: #bbe4ff;
+    transition: 0.5s;
+}
+
+.cartel1, .cartel2, .cartel3{
+    display: none;
+}
+
+footer{
+    font-family: "Inter", sans-serif;
+    padding: 1em;
+    text-align: center;
+    background: linear-gradient(80deg, var(--prim), var(--third));
+    color: #f0f0f1a7;
+    margin-top:100px;
+}
+
+footer img{
+    width: 30px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+
+/* TABLET */
+@media all and (min-width:768px){
+
+#hamburguesa{
+        display: none;
+    }
+
+nav{
+    opacity: 1;
+    position: static;
+    flex-direction: row;
+    display: flex;
+}
+
+nav a{ 
+    color: var(--prim);
+    padding: 0.5em;
+    font-weight: 500;
+}
+
+header #logo{
+    filter: contrast(2);
+}
+
+header{
+    background: linear-gradient(to bottom, var(--third), rgba(169, 181, 236, 0.296));
+
+}
+
+#hero{
+    display: block;
+}
+
+#hero h1, p{
+    margin: 45px;
+}
+
+#hero h1{
+    font-size: 70px;
+    padding-top: 1.3em;
+    color: var(--sec);
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(1, 1, 6, 0.557);
+}
+
+#hero p{
+    font-size: medium;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #06243886;
+    padding: 12px;
+    color: var(--bg);
+}
+
+nav a{
+    color: var(--sec);
+}
+
+#datos article:nth-of-type(6){
+    display: block; /* en el celular no se ve */
+}
+
+#datos article:nth-of-type(4) p{
+    bottom: 0;
+    color: var(--sec);
+    margin: 0;
+    padding: 1em;
+    font-weight: 400;
+    font-size: 0.9em;
+    background-color: #06243877;
+    width: 100%; /* para que quede luego el bg color todo el parrafo */ 
+}
+
+#datos article:nth-of-type(4) h3{
+    top: 0;
+    bottom: auto;
+    font-weight: 700;
+    width: auto;
+}
+
+#datos article:nth-of-type(4) p, #datos article:nth-of-type(4) h3{
+    display: block;
+}
+
+#datos{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 100vh;
+    gap: 2px;
+    margin: auto;
+    justify-content: center;
+}
+
+#datos article{
+    position: relative;
+    overflow: hidden;
+}
+
+#datos img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+}
+
+#datos article:nth-of-type(3){
+    grid-column: 2; /* le decimos el lado de la columna */
+    grid-row: 1 / 3; /* decimos cuales rows abarca */
+}
+
+#datos article:nth-of-type(4){
+    grid-column: span 2; 
+}
+
+#noticias article{
+    width: 100%;
+    height: 100%;
+    max-width: 320px;
+    margin: 0 auto; /* para centrar */
+}
+
+#todosarticulos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+#icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+}
+
+/* DESKTOP */
+ @media all and (min-width:1200px){
+
+#hero{
+    align-content: center;
+    display: block;
+    height: 100vh;
+ 
+}
+
+#hero h1{
+    margin: 0.9em;
+    color: var(--sec);
+
+}
+
+#hero p{
+    background-color:#0624382b;
+    font-size: larger;
+    text-shadow: 2px 2px 8px rgba(1, 1, 6, 0.557);
+}
+
+header{
+    height: 8vh;
+}
+
+nav{
+    display: block;
+}
+
+.linea{
+    position: relative;
+    display: inline-block;
+}
+
+.linea::after {
+    content: '';
+    position: absolute;
+    width: 95%;
+    height: 2px;
+    background: linear-gradient(to right, var(--prim),var(--sec));
+    bottom: 2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+}
+
+.linea:hover::after{
+    transform: scaleX(1);
+}
+
+.heroyform{
+    position: relative;
+}
+
+#form{
+    position: absolute;
+    right: 3%;
+    top: 72%;
+    background:  linear-gradient(to bottom, var(--prim),var(--sec));
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(1, 1, 6, 0.844);
+    filter: grayscale(1);
+    transition: 0.5s;
+    text-align: center;
+}
+
+#form:hover{
+    transition: 0.5s;
+    filter: none;
+}
+
+button{
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    background-color: #157cc2;
+    color: #bbe4ff;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    box-shadow: 2px 2px 8px var(--prim);
+    transition: 0.5s;
+}
+
+button:hover{
+    color: #157cc2;
+    background-color: #bbe4ff;
+}
+
+form select, form input{
+    padding: 8px;
+    margin-bottom: 0;
+}
+
+#form h2{
+    color: var(--bg);
+}
+
+#form p{
+    color: var(--sec);
+}
+
+#datos img{
+    border-radius: 5px;
+    filter: saturate(0.7);
+    transition: 0.3s;
+}
+
+#datos{
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    margin: auto;
+    height: 80vh;
+    border-radius: 5px;
+}
+
+#datos article:nth-of-type(2){
+    grid-column: span 1; 
+    grid-row: 2; 
+}
+
+#datos p, #datos h3, #datos a{
+    opacity: 0;
+    transition: 0.2s;
+}
+
+#datos article:hover img{
+    filter: saturate(1.5);
+    transform: rotateZ(0.8deg) scale(1.05);
+}
+
+#datos article:hover p, #datos article:hover h3, #datos article:hover a{
+    opacity: 1;
+}
+
+#datos article::before{
+    content:""; 
+    display: inline-block;
+    width: 5px;
+    height: 0;
+    position: absolute;
+    z-index: 2;
+    transition: 1s;
+    bottom: 0;
+}
+
+#datos article:hover::before{
+    height: 100%;
+}
+
+#noticias h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+ .flexmini img{
+    display:block;
+}
+
+.cartel1{
+    display: block;
+    background-color: var(--third);
+    color: var(--prim);
+    box-shadow: 2px 2px 2px rgba(1, 1, 6, 0.557);
+    font-weight: bold;
+    padding: 0.8em;
+    letter-spacing: 0.1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50px 0;
+}
+
+.cartel2{
+    display: block;
+    background-color: var(--prim);
+    color: var(--bg);
+    box-shadow: 2px 2px 2px rgba(1, 1, 6, 0.557);
+    font-weight: bold;
+    padding: 0.8em;
+    letter-spacing: 0.1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50px 0;
+}
+
+.cartel3{
+    display: block;
+    background-color: var(--sec);
+    color: var(--third);
+    box-shadow: 2px 2px 2px rgba(1, 1, 6, 0.557);
+    font-weight: bold;
+    padding: 0.8em;
+    letter-spacing: 0.1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50px 0;
+}
+
+#noticias article {
+    height: 420px;
+    margin: 0;
+}
+
+#noticias img {
+    height: 50%;
+}
+
+#todosarticulos{
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+     display: flex;
+}
+
+#todosarticulos article{
+    width: 20%;
+    box-sizing: border-box;
+}
+
+.flexmini {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+ }
